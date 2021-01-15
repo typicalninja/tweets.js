@@ -1,14 +1,17 @@
 {
   "name": "tweets.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "a easy to use client for the twitter api",
   "main": "index.js",
   "repository": "typicalninja493/tweet.js",
-
   "scripts": {
     "test": "echo \"Error: no test specified\""
   },
-  "keywords": ["twitter", "twitter-api", "api"],
+  "keywords": [
+    "twitter",
+    "twitter-api",
+    "api"
+  ],
   "homepage": "https://tweet.js.axix-devlopment.gq/",
   "author": "",
   "license": "ISC",
