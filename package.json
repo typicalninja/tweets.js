@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "a easy to use client for the twitter api",
   "main": "index.js",
+  "repository": "typicalninja493/tweet.js",
 
   "scripts": {
     "test": "echo \"Error: no test specified\""
