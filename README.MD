@@ -1,11 +1,11 @@
 # Installing
 
-You can install the **tweet.js** package using the following command
+You can install the **tweets.js** package using the following command
 
   
 
 ```
-npm i tweet.js
+npm i tweets.js
 ```
 
   
@@ -14,7 +14,7 @@ npm i tweet.js
 # usage
 
   
-to get the following tokens here is a [guide](https://iag.me/socialmedia/how-to-create-a-twitter-app-in-8-easy-steps/)
+to get the following tokens here is a [guide](https://tweet.js.axix-devlopment.gq/tokens)
 Using the package is pretty easy
 setting up
 ```
@@ -28,7 +28,7 @@ access_token_secret:  ""
 });
 // thats it now follow the below methods
   ```
-
+### find all the methods in our docs [here](https://tweet.js.axix-devlopment.gq)
 ### tweeting
 
   
@@ -56,3 +56,9 @@ console.log(r)
 bot.post('statuses/update' , body,  function(r) {
 console.log(r)
 });
+
+
+## plans
+
+* have follow unfollow methods
+* support streams

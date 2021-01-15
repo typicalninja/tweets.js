@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 const merge = require("deepmerge");
 const querystring = require("querystring");
 const fs = require("fs");
-const { isUrl, download} = require("../src/functions.js");
+const { isUrl, download } = require("../src/functions.js");
 
 const createOauthClient = ({ key, secret }) => {
   const client = OAuth({
@@ -31,9 +31,6 @@ const JSON_ENDPOINTS = [
   "media/metadata/create",
   "collections/entries/curate",
 ];
-
-
-
 
 this.DefaultOptions = {
   consumer_key: process.env.CONSUMER_KEY || null,
@@ -128,13 +125,14 @@ class tweet extends EventEmitter {
   _makeRequest(method, resource, parameters) {
     let requestData = {
       url: `${
-        upload_ends.includes(resource) ? this.uploadurl : this.baseurl}/${resource}.json`,
+        upload_ends.includes(resource) ? this.uploadurl : this.baseurl
+      }/${resource}.json`,
       method: method,
     };
     if (parameters) {
       if (method === "POST") {
         requestData.data = parameters;
-      }  else {
+      } else {
         requestData.url += "?" + querystring.stringify(parameters);
       }
     }
@@ -163,8 +161,8 @@ class tweet extends EventEmitter {
         id = options.reply_to;
       }
     }
-    if(!tweet) {
-      throw new Error('Specify a message to tweet');
+    if (!tweet) {
+      throw new Error("Specify a message to tweet");
     }
     let body = {
       status: tweet,
@@ -219,67 +217,66 @@ class tweet extends EventEmitter {
     return construct;
   }
 
-
-async reply(message, tweet_id) {
-if(!message) {
-  throw new Error('Trying to send an empty tweet');
-}
-if(!tweet_id) {
-  throw new Error('tweet_id is a required field that is missing');
-}
-const body = { status: message,  in_reply_to_status_id: tweet_id, auto_populate_reply_metadata: true};
-this.post('statuses/update', body).then(s => {
-  if(s.errors){
-    return console.log(s);
-  } else {
-  let construct = {
-    id: s.id_str,
-    tweet_message: s.text,
-    request: s,
-    user: {
-      id: s.user.id,
-      id_str: s.user.id_str,
-      username: s.user.name,
-      screen_name: s.user.screen_name,
-      description: s.user.description,
-      followers: s.user.followers_count,
-      createdAt: s.user.created_at,
-      verified: s.user.verified,
-      avatarUrl: s.user.profile_image_url_https,
-      bannerUrl: s.user.profile_background_image_url_https,
-    },
-    error: null,
-    retweet: s.retweeted,
-  };
-  return construct;
+  async reply(message, tweet_id) {
+    if (!message) {
+      throw new Error("Trying to send an empty tweet");
+    }
+    if (!tweet_id) {
+      throw new Error("tweet_id is a required field that is missing");
+    }
+    const body = {
+      status: message,
+      in_reply_to_status_id: tweet_id,
+      auto_populate_reply_metadata: true,
+    };
+    this.post("statuses/update", body).then((s) => {
+      if (s.errors) {
+        return console.log(s);
+      } else {
+        let construct = {
+          id: s.id_str,
+          tweet_message: s.text,
+          request: s,
+          user: {
+            id: s.user.id,
+            id_str: s.user.id_str,
+            username: s.user.name,
+            screen_name: s.user.screen_name,
+            description: s.user.description,
+            followers: s.user.followers_count,
+            createdAt: s.user.created_at,
+            verified: s.user.verified,
+            avatarUrl: s.user.profile_image_url_https,
+            bannerUrl: s.user.profile_background_image_url_https,
+          },
+          error: null,
+          retweet: s.retweeted,
+        };
+        return construct;
+      }
+    });
   }
-});
-
+  async retweet(id) {
+    if (!id) {
+      throw new Error("Id is a needed argument that is missing");
+    }
+    if (id && isNaN(id)) {
+      throw new Error("Id must be a number");
+    }
+    let para = { id: id };
+    await this.get("statuses/lookup", para).then(async (r) => {
+      if (r.length == 0) {
+        throw new Error(`The given id "${id}" is not valid!!`);
+      } else {
+        let c;
+        let url = `statuses/retweet/${id}`;
+        await this.post(url, {}).then((r) => {
+          c = r;
+        });
+        return c;
+      }
+    });
   }
-async retweet(id) {
-if(!id) {
-  throw new Error('Id is a needed argument that is missing');
-}
-if(id && isNaN(id)) {
-  throw new Error('Id must be a number');
-}
-let para = { id: id };
-await this.get('statuses/lookup', para).then(async r => {
-if(r.length == 0) {
- throw new Error(`The given id "${id}" is not valid!!`);
-} else {
-  let c;
-  let url = `statuses/retweet/${id}`;
-  await this.post(url, {}).then(r => {
-c = r;
-   
-  });
-  return c;
-}
-});
-
-
-}
 
   async uploadMedia(path, options, callback) {
     if (!options) {
@@ -349,12 +346,11 @@ c = r;
                     const text = options.tweet_message;
                     const params = { status: text, media_ids: [mediaIdStr] };
                     await t.post("statuses/update", params).then((r) => {
-                      if(callback) {
+                      if (callback) {
                         callback(r);
                       } else {
                         return r;
                       }
-          
                     });
                   });
               }
@@ -408,6 +404,40 @@ c = r;
       return r;
     }
   }
+async getFollowers(screen_name, options, callback) {
+  if(options && !options.limit) {
+    options.limit = 10;
+  }
+  if(!options && !options.limit) {
+    options = {
+      limit: 10
+    };
+  }
+if(isNaN(screen_name)) {
+  const params = {
+    screen_name: screen_name,
+    count: options.limit || 50,
+  };
+ let res = await this.get('followers/ids', params);
+  if(callback) {
+    callback(res);
+  } else {
+    return res;
+  }
+} else {
+  const params = {
+    user_id: screen_name,
+    count: options.limit || 50,
+  };
+ const res = await this.get('followers/ids', params);
+ if(callback) {
+   callback(res);
+ } else {
+   return res;
+ }
+}
+
+}
 
   async get(url, parameters) {
     const { requestData, headers } = this._makeRequest("GET", url, parameters);
@@ -426,7 +456,7 @@ c = r;
       })
       .catch((err) => console.log(`❌--Error while fetching - ${err}`));
 
-      return r;
+    return r;
   }
 
   async search(query, options) {

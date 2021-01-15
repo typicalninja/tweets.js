@@ -37,13 +37,14 @@ module.exports = {
       return;
     });
     if (response) {
-      
       const contentlength = response.headers.get("content-length");
 
-      if(contentlength > maxsize*1024*1024) {
-        return console.log('❌ - file size is too large, refer this: https://tinyurl.com/y568pqdh');
+      if (contentlength > maxsize * 1024 * 1024) {
+        return console.log(
+          "❌ - file size is too large, refer this: https://tinyurl.com/y568pqdh"
+        );
       }
-      
+
       const buffer = await response.buffer();
       fs.writeFile(filepath, buffer, () =>
         console.log("✔️--finished downloading!")
@@ -60,13 +61,4 @@ module.exports = {
       );
     }
   },
-  encode: async function (string) {
-    return string
-      .replace(/!/g, "%21")
-      .replace(/\*/g, "%2A")
-      .replace(/'/g, "%27")
-      .replace(/\(/g, "%28")
-      .replace(/\)/g, "%29");
-  },
-
 };
