@@ -1,0 +1,28 @@
+{
+  "name": "tweet.js",
+  "version": "1.0.0",
+  "description": "a easy to use client for the twitter api",
+  "main": "index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["twitter"],
+  "homepage": "https://tweet.js.axix-devlopment.gq/",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "deepmerge": "^4.2.2",
+    "node-fetch": "^2.6.1",
+    "oauth-1.0a": "^2.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "jasmine": "^3.6.3"
+  }
+}
