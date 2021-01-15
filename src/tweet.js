@@ -277,6 +277,36 @@ class tweet extends EventEmitter {
       }
     });
   }
+async getUser(val, callback){
+  if(!val) {
+    throw new Error('Please provide a name or a id for getUser()');
+  }
+if(isNaN(val)) {
+  let para = {
+    screen_name: val
+  };
+  this.get('users/show', para).then(r => {
+    if(callback){
+      callback(r);
+    } else {
+      return r;
+    }
+  });
+    } else {
+      para = {
+        user_id: val
+      }
+      this.get('users/show', para).then(r => {
+        if(callback){
+          callback(r);
+        } else {
+          return r;
+        }
+      });
+    }
+
+  }
+}
 
   async uploadMedia(path, options, callback) {
     if (!options) {
@@ -405,6 +435,9 @@ class tweet extends EventEmitter {
     }
   }
 async getFollowers(screen_name, options, callback) {
+if(!screen_name) {
+  throw new Error('please provide a screen_name or a id for getFolowers()')
+}
   if(options && !options.limit) {
     options.limit = 10;
   }

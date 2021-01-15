@@ -18,7 +18,7 @@ to get the following tokens here is a [guide](https://tweet.js.axix-devlopment.g
 Using the package is pretty easy
 setting up
 ```
-const { tweet }= require('tweet.js');
+const { tweet }= require('tweets.js');
 const  bot = new  tweet({
 consumer_key:  "",
 consumer_secret:  "",
