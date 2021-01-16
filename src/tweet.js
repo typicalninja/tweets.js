@@ -293,9 +293,9 @@ if(isNaN(val)) {
     }
   });
     } else {
-      para = {
+      let para = {
         user_id: val
-      }
+      };
       this.get('users/show', para).then(r => {
         if(callback){
           callback(r);
@@ -306,9 +306,8 @@ if(isNaN(val)) {
     }
 
   }
-}
 
-  async uploadMedia(path, options, callback) {
+async uploadMedia(path, options, callback) {
     if (!options) {
       throw new Error("Options are missing!!");
     }
@@ -436,7 +435,7 @@ if(isNaN(val)) {
   }
 async getFollowers(screen_name, options, callback) {
 if(!screen_name) {
-  throw new Error('please provide a screen_name or a id for getFolowers()')
+  throw new Error('please provide a screen_name or a id for getFolowers()');
 }
   if(options && !options.limit) {
     options.limit = 10;
