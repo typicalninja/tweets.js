@@ -4,6 +4,9 @@ const nonLocalhostDomainRE = /^[^\s\.]+\.\S{2,}$/;
 const fs = require("fs");
 const fetch = require("node-fetch");
 const maxsize = 15;
+const OAuth = require("oauth-1.0a");
+const crypto = require("crypto");
+const constants = require('../utils/constants');
 
 module.exports = {
   isUrl: async function (string) {
@@ -61,4 +64,30 @@ module.exports = {
       );
     }
   },
+  createClient: function(key, secret){
+    const client = OAuth({
+      consumer: { 
+        key, 
+        secret 
+      },
+      signature_method: "HMAC-SHA1",
+      hash_function(baseString, key) {
+        return crypto.createHmac("sha1", key).update(baseString).digest("base64");
+      },
+    });
+    return client;
+  },
+  getUrl: function(subdomain = 'api', endpoint = '1.1') {
+     return `https://${subdomain}.twitter.com/${endpoint}`;
+  },
+  percentEncode: function(string) {
+    // https://github.com/draftbit/twitter-lite/blob/master/twitter.js#L53
+    return string
+      .replace(/!/g, '%21')
+      .replace(/\*/g, '%2A')
+      .replace(/'/g, '%27')
+      .replace(/\(/g, '%28')
+      .replace(/\)/g, '%29');
+  }
+  
 };

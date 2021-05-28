@@ -1,11 +1,12 @@
 {
   "name": "tweets.js",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "a easy to use client for the twitter api",
   "main": "index.js",
   "repository": "typicalninja493/tweet.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "docs:build": "jsdoc ./src/client.js ./src/struc/user.js ./src/struc/tweet.js -t node_modules/jsdoc-skyceil -R README.md"
   },
   "keywords": [
     "twitter",
@@ -22,6 +23,8 @@
     "oauth-1.0a": "^2.2.6"
   },
   "devDependencies": {
+    "jsdoc-skyceil": "^2.0.0",
+    "docma": "^3.2.2",
     "eslint": "^7.17.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
