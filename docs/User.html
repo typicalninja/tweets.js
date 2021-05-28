@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: tweet</title>
+    <title>Class: User</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -37,7 +37,7 @@
         <div class="burger-line-3"></div>
     </div>
 
-    <h1 class="page-title">Class: tweet</h1>
+    <h1 class="page-title">Class: User</h1>
 
     
 
@@ -48,9 +48,9 @@
 <header>
     <hr>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>tweet<span class="signature">(response, twitterClient)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>User<span class="signature">(UserResponse, twitterClient)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">The internal message/tweets class</div>
+            <div class="class-description">The internal user class</div>
         
     
 </header>
@@ -65,7 +65,7 @@
     
 
     
-    <h4 class="name" id="tweet"><span class="type-signature"></span>new tweet<span class="signature">(response, twitterClient)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="User"><span class="type-signature"></span>new User<span class="signature">(UserResponse, twitterClient)</span><span class="type-signature"></span></h4>
     
 
     
@@ -106,7 +106,7 @@
 
             <tr>
                 
-                    <td class="name"><code>response</code></td>
+                    <td class="name"><code>UserResponse</code></td>
                 
 
                 <td class="type">
@@ -122,7 +122,7 @@
 
                 
 
-                <td class="description last">response from the fetch request</td>
+                <td class="description last">User response obj from the fetch request original object</td>
             </tr>
 
         
@@ -188,7 +188,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line7">line 7</a>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -245,7 +245,7 @@
     
 
     
-    <h4 class="name" id="reply"><span class="type-signature"></span>reply<span class="signature">(message-, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="follow"><span class="type-signature"></span>follow<span class="signature">(notifications)</span><span class="type-signature"></span></h4>
     
 
     
@@ -253,7 +253,7 @@
 
 
 <div class="description">
-    reply to a tweet
+    Follow the user which belongs to this User object
 </div>
 
 
@@ -280,6 +280,8 @@
             
 
             
+            <th>Default</th>
+            
 
             <th class="last">Description</th>
         </tr>
@@ -290,13 +292,13 @@
 
             <tr>
                 
-                    <td class="name"><code>message-</code></td>
+                    <td class="name"><code>notifications</code></td>
                 
 
                 <td class="type">
                 
                     
-<span class="param-type">string</span>
+<span class="param-type">Boolean</span>
 
 
                 
@@ -305,31 +307,14 @@
                 
 
                 
-
-                <td class="description last">tweet to post as a reply</td>
-            </tr>
-
-        
-
-            <tr>
-                
-                    <td class="name"><code>options</code></td>
-                
-
-                <td class="type">
-                
+                    <td class="default">
                     
-<span class="param-type">object</span>
-
-
-                
-                </td>
-
+                        true
+                    
+                    </td>
                 
 
-                
-
-                <td class="description last">options for reply()</td>
+                <td class="description last">weather to Enable notifications for the target user</td>
             </tr>
 
         
@@ -372,7 +357,148 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line34">line 34</a>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="unfollow"><span class="type-signature"></span>unfollow<span class="signature">(user-)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    unFollows a user
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>user-</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">A user id or screen name</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -422,7 +548,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 16:33:06 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 16:44:47 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
 </footer>
 
 <script>prettyPrint();</script>

@@ -54,6 +54,11 @@ bot.tweet('hello from tweets.js').then(console.log).catch(console.error)
 * **A stream emitter is ready on startup by default, you will just have to call `<client>.start(parameters)` for it to be activated**
 
 ```js
+
+const parameters = {
+  follow: "1238451949000888322", // @typicalninja
+};
+
 const stream = bot.start(parameters);
 
 // Stream is ready
@@ -80,6 +85,15 @@ stream.on("ping", () => console.log("ping"))
 stream.on("end", () => console.log(`Stream ended f`))
 ```
 
+> search for users
+
+```js
+// returns a array
+bot.searchUsers('typicalNinja').catch(console.log).then(users => {
+  console.log(users[0].id);
+});
+```
+
 ### find all the methods in our docs [here](https://tweets.axix.cf/)
 
 ## New version is here!!!
@@ -94,6 +108,6 @@ stream.on("end", () => console.log(`Stream ended f`))
 * Code/inspiration is taken from the below sources
 
 
-* twitter-lite - https://github.com/draftbit/twitter-lite
-* node-twitter - https://github.com/desmondmorris/node-twitter
-* twit - https://github.com/ttezel/twit
+* [twitter-lite](https://github.com/draftbit/twitter-lite)
+* [node-twitter](https://github.com/desmondmorris/node-twitter)
+* [twit](https://github.com/ttezel/twit)
