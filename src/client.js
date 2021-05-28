@@ -57,6 +57,7 @@ class client extends EventEmitter {
    * @param {string} method - 'GET' or 'POST'
    * @param {string} path - the API endpoint
    * @param {object} parameters - request parameters
+   * @private
    */
     _buildRequest(method, path, parameters) {
         const Data = {
@@ -88,6 +89,7 @@ class client extends EventEmitter {
       /**
    * Handle the returned response from the fetch request
    * @param {Response} response -   Returned response
+   * @private
    */
     async _handleResponse(resp) {
       const headers = resp.headers;
