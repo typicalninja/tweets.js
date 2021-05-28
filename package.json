@@ -6,14 +6,14 @@
   "repository": "typicalninja493/tweet.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
-    "docs:build": "jsdoc ./src/client.js ./src/struc/user.js ./src/struc/tweet.js -t node_modules/jsdoc-skyceil -R README.md"
+    "docs:build": "jsdoc ./src/client.js ./src/struc/user.js ./src/struc/tweet.js -t node_modules/jsdoc-skyceil -R README.md -d ./docs"
   },
   "keywords": [
     "twitter",
     "twitter-api",
     "api"
   ],
-  "homepage": "https://tweet.js.axix-devlopment.gq/",
+  "homepage": "http://tweets.axix.cf/",
   "author": "",
   "license": "ISC",
   "dependencies": {

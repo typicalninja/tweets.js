@@ -27,7 +27,7 @@
         <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
     </div>
     <hr>
-    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#_buildRequest">_buildRequest</a></li><li><span class="small-icon F">F</span><a href="client.html#_handleResponse">_handleResponse</a></li><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li></ul></li></ul>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#_buildRequest">_buildRequest</a></li><li><span class="small-icon F">F</span><a href="client.html#_handleResponse">_handleResponse</a></li><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -1714,6 +1714,239 @@
     
 
     
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(parameters, path)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Start the stream
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>parameters</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">parameters for twitter api</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>path</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">url the stream, defaults to what you set as stream url in client options</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>options.page</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Specifies the page of results to retrieve.</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>options.count</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">The number of potential user results to retrieve per page. This value has a maximum of 20.</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>options.includeEntities</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">The entities node will not be included in embedded Tweet objects when set to false</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line322">line 322</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
     <h4 class="name" id="thread"><span class="type-signature">(async) </span>thread<span class="signature">(threadMessage-, options)</span><span class="type-signature"></span></h4>
     
 
@@ -2298,7 +2531,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 16:44:47 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 17:58:33 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
 </footer>
 
 <script>prettyPrint();</script>

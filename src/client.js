@@ -311,11 +311,18 @@ class client extends EventEmitter {
 
    return users;
     }
-  
+       /**
+   * Start the stream
+   * @param {Object} parameters - parameters for twitter api
+   * @param {String} path - url the stream, defaults to what you set as stream url in client options
+   * @param {String} options.page - Specifies the page of results to retrieve.
+   * @param {String} options.count - The number of potential user results to retrieve per page. This value has a maximum of 20.
+   * @param {string} options.includeEntities - The entities node will not be included in embedded Tweet objects when set to false
+   */
      start(parameters = {}, path = this.streamUrl) {
       if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a User, got "${this.authenticationType}"`);
       if(!this.indefinite) throw new Error('Stream disabled');
-
+      if(!parameters) throw new Error('Parameter must be present');
       this.stream = new sm();
 
       const Data = {
