@@ -27,7 +27,7 @@
         <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
     </div>
     <hr>
-    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li></ul></li></ul>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#disconnect">disconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="client.html#getUser">getUser</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reconnect">reconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li><li><span class="small-icon M">M</span><a href="tweet.html#client">client</a></li><li><span class="small-icon M">M</span><a href="tweet.html#content">content</a></li><li><span class="small-icon M">M</span><a href="tweet.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="tweet.html#id">id</a></li><li><span class="small-icon M">M</span><a href="tweet.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="tweet.html#replyTo">replyTo</a></li><li><span class="small-icon M">M</span><a href="tweet.html#request">request</a></li><li><span class="small-icon M">M</span><a href="tweet.html#retweets">retweets</a></li><li><span class="small-icon M">M</span><a href="tweet.html#user">user</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li><li><span class="small-icon M">M</span><a href="User.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="User.html#following">following</a></li><li><span class="small-icon M">M</span><a href="User.html#id">id</a></li><li><span class="small-icon M">M</span><a href="User.html#likedPosts">likedPosts</a></li><li><span class="small-icon M">M</span><a href="User.html#name">name</a></li><li><span class="small-icon M">M</span><a href="User.html#profileURL">profileURL</a></li><li><span class="small-icon M">M</span><a href="User.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="User.html#screenName">screenName</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -51,7 +51,7 @@ const Func = require('./utils/functions.js');
 const querystring = require("querystring");
 const EventEmitter = require('events');
 const sm = require('./streamManager');
-
+const wait = require('util').promisify(setTimeout);
 // request client
 const fetch = require('node-fetch');
 
@@ -61,6 +61,7 @@ const User = require('./struc/user');
 
 /**
  * The core client
+ * @class
  * @param {Object} Options - Options for tweets.js client
  * @param {String} options.version - twitter api version to use, defaults to 1.1
  * @param {String} options.emitter - should the stream be enabled on startup
@@ -79,12 +80,17 @@ class client extends EventEmitter {
         this._RawOptions = options;
 // the merged options
         const config = Object.assign({}, constants.DefaultOptions, options);
-        this._options = config;
+        this._options = Object.freeze(config);
         if(this._options.emitter) this.indefinite = true;
         if(this._options.emitterUrl) this.streamUrl = this._options.emitterUrl;
         // set the version for future use
         this.version = config.version == '1.1' ? '1' : '2';
         // Set the auth type for restricting function to certain types
+         /**
+         * The type this client has authenticated as
+         * @type {String}
+         * @private
+         */
         this.authenticationType = config.bearer_token ? 'APP' : 'USER';
  // create the main internal oauth client
         this._client = Func.createClient(config.consumer_key, config.consumer_secret);
@@ -92,6 +98,11 @@ class client extends EventEmitter {
         this.BaseUrl = Func.getUrl(config.subdomain, config.version);
 
         if(this.authenticationType === 'USER') {
+           /**
+         * User data
+         * @type {String}
+         * @private
+         */
           this._UserData = {
             key: this._options.access_token,
             secret: this._options.access_token_secret,
@@ -228,6 +239,7 @@ class client extends EventEmitter {
    * @param {string} message- tweet to post
    * @param {string} to - Id of the tweet to reply
    * @param {object} options - options for reply()
+   * @param {object} options.body - additional body with the constructed body
    */
    async reply(message, to, options = {}) {
      if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a user type to tweet/reply, got "${this.authenticationType}"`);
@@ -255,8 +267,9 @@ class client extends EventEmitter {
      /**
    * Make a thread
    * @param {Array} threadMessage- Array of messages to make a thread out of
-   * @param {Object} options - options for either repl() or tweet()
+   * @param {Object} options - options for either reply() or tweet()
    * @param {String} options.lastTweetID - starting the thread with already posted tweet?
+   * @param {String} options.delay - add a delay to in how many time it should take to post it tweet, default to 10000
    */
    async thread(threadMessages = [], options = {}) {
     if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a User, got "${this.authenticationType}"`);
@@ -268,7 +281,10 @@ class client extends EventEmitter {
      // make a empty array to be returned later with all the thread tweets classes
      const threads = [];
      for (const message of threadMessages) {
-       // if this is the first message
+       // Add a delay to stop getting rate limited
+       if(options.delay &amp;&amp; isNaN(options.delay) &amp;&amp; options.delay &lt; 3000) await wait(options.delay);
+       else await wait(10000);
+    // if this is the first message
        if(!lastTweetID) {
         const tweet = await this.tweet(message, options);
         if(tweet.id) {
@@ -338,8 +354,9 @@ class client extends EventEmitter {
    * @param {string} options.includeEntities - The entities node will not be included in embedded Tweet objects when set to false
    */
     async searchUsers(query, options = {}) {
-   if(!query) throw new Error('Cannot search for a empty query');
-   if(typeof query !== 'string') throw new Error('query must be a string,');
+      if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a User, got "${this.authenticationType}"`);
+      if(!query) throw new Error('Cannot search for a empty query');
+      if(typeof query !== 'string') throw new Error('query must be a string,');
    if(typeof options !== 'object') throw new Error('options must be a object');
    const parameters = {
      q: query,
@@ -361,18 +378,79 @@ class client extends EventEmitter {
 
    return users;
     }
+  
+    
+     /**
+   * Get a users follower list
+   * @param {String} user - A user id or screen name
+   * @param {Object} options - Options for twitter api
+   * @param {String} options.count - The number of user results to retrieve, max of 200
+   * @param {Boolean} options.skip_status - Weather to not include status in the api response
+   * @param {Boolean} options.include_user_entities - The user object entities node will not be included when set to false
+   */
+   async getFollowers(user, options = {}) {
+    if(typeof user !== 'string' &amp;&amp; typeof user !== 'number' &amp;&amp; isNaN(user)) throw new Error(`User must be a userID (number) or a user scree name (String), received ${typeof user}`);
+    if(options &amp;&amp; typeof options !== 'object') throw new Error(`Options must be a object, ${typeof options}`);
+   
+    const parameters = {};
+
+    if(isNaN(user)) parameters.screen_name = user; 
+    else parameters.user_id = user;
+
+    if(options.count &amp;&amp; !isNaN(options.count) &amp;&amp; options.count &lt;= 200) parameters.count = options.count;
+    if(options.skip_status &amp;&amp; options.skip_status == true) parameters.count = true;
+    if(options.include_user_entities &amp;&amp; parameters.include_user_entities == false)  parameters.include_user_entities = false;
+
+    const request = await this.get('followers/list', parameters);
+    const users = [];
+    if(request.users &amp;&amp; Array.isArray(request.users)) {
+      for (user of request.users) {
+       const constructedUserClass = new User(user, this);
+       users.push(constructedUserClass);
+      }
+    }
+    return users;
+     }
+
+     /**
+   * gets A specific user from the api
+   * @param {String} user- A user id or screen name
+   */
+    async getUser(user) {
+      if(typeof user !== 'string' &amp;&amp; typeof user !== 'number' &amp;&amp; isNaN(user)) throw new Error(`User must be a userID (number) or a user scree name (String), received ${typeof user}`);
+
+      // empty object, add values to this
+      const parameters = {};
+      // decide if a user id or a screen Name was provided
+      if(isNaN(user)) parameters.screen_name = user; 
+      else parameters.user_id = user;
+
+      const request = await this.get('users/show', parameters);
+
+      return new User(request, this);
+    }
+
+
+    async retweet(tweetID) {
+      if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a User, got "${this.authenticationType}"`);
+      if(!tweetID) throw new Error('Tweet id must be present');
+      if(typeof tweetID !== 'string') throw new Error(`tweetID must be a string, received ${typeof tweetID}`);
+
+      const urlToPost = `statuses/retweet/${tweetID}`;
+
+      const request = await this.post(urlToPost);
+      console.log(request);
+    }
        /**
    * Start the stream
    * @param {Object} parameters - parameters for twitter api
-   * @param {String} path - url the stream, defaults to what you set as stream url in client options
-   * @param {String} options.page - Specifies the page of results to retrieve.
-   * @param {String} options.count - The number of potential user results to retrieve per page. This value has a maximum of 20.
-   * @param {string} options.includeEntities - The entities node will not be included in embedded Tweet objects when set to false
+   * @param {String} path - url to stream, defaults to what you set as stream url in client options
    */
      start(parameters = {}, path = this.streamUrl) {
       if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a User, got "${this.authenticationType}"`);
       if(!this.indefinite) throw new Error('Stream disabled');
       if(!parameters) throw new Error('Parameter must be present');
+      if(this.stream) throw new Error('Stream already active');
       this.stream = new sm();
 
       const Data = {
@@ -423,6 +501,31 @@ class client extends EventEmitter {
 
       return this;
   }
+
+    /**
+   * Disconnect the stream
+   * @param {Boolean} removeListeners - Weather to remove all the event listeners attached to client/stream set to false if you want to make a manual reconnect logic and don't want to reregister the events
+   */
+  async disconnect(removeListeners = true) {
+   if(!this.stream) throw new Error('No Stream active');
+   if(removeListeners) this.removeAllListeners();
+    // destroy the stream
+     this.stream.destroy();
+     // set the stream to null
+     this.stream = null;
+     this.emit('destroy', true);
+return null;
+  }
+
+    /**
+   * Disconnects and reconnects the stream, does not remove the listeners
+   * @param {Object} newParameters - The new parameters to start the stream with
+   */
+  async reconnect(newParameters = {}) {
+    if(this.stream) await this.disconnect(false);
+    if(!newParameters) throw new Error('Please provide new parameters for reconnect');
+    return this.start(newParameters);
+  }
 }
 
 module.exports = client;</code></pre>
@@ -438,7 +541,7 @@ module.exports = client;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 18:10:29 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun May 30 2021 08:43:07 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
 </footer>
 
 <script>prettyPrint();</script>

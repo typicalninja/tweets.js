@@ -27,7 +27,7 @@
         <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
     </div>
     <hr>
-    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li></ul></li></ul>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#disconnect">disconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="client.html#getUser">getUser</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reconnect">reconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li><li><span class="small-icon M">M</span><a href="tweet.html#client">client</a></li><li><span class="small-icon M">M</span><a href="tweet.html#content">content</a></li><li><span class="small-icon M">M</span><a href="tweet.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="tweet.html#id">id</a></li><li><span class="small-icon M">M</span><a href="tweet.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="tweet.html#replyTo">replyTo</a></li><li><span class="small-icon M">M</span><a href="tweet.html#request">request</a></li><li><span class="small-icon M">M</span><a href="tweet.html#retweets">retweets</a></li><li><span class="small-icon M">M</span><a href="tweet.html#user">user</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li><li><span class="small-icon M">M</span><a href="User.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="User.html#following">following</a></li><li><span class="small-icon M">M</span><a href="User.html#id">id</a></li><li><span class="small-icon M">M</span><a href="User.html#likedPosts">likedPosts</a></li><li><span class="small-icon M">M</span><a href="User.html#name">name</a></li><li><span class="small-icon M">M</span><a href="User.html#profileURL">profileURL</a></li><li><span class="small-icon M">M</span><a href="User.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="User.html#screenName">screenName</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -72,6 +72,10 @@
 
 
 
+<div class="description">
+    main user constructor
+</div>
+
 
 
 
@@ -112,7 +116,7 @@
                 <td class="type">
                 
                     
-<span class="param-type">Object</span>
+<span class="param-type">JsonRequestResponse</span>
 
 
                 
@@ -122,7 +126,7 @@
 
                 
 
-                <td class="description last">User response obj from the fetch request original object</td>
+                <td class="description last">User response from the fetch request</td>
             </tr>
 
         
@@ -188,7 +192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line6">line 6</a>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -235,6 +239,602 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="createdAt"><span class="type-signature"></span>createdAt<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    When the user's account was created At
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="following"><span class="type-signature"></span>following<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    Weather the user is followed by you
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    The user id  of this user
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="likedPosts"><span class="type-signature"></span>likedPosts<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    Users liked posts
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    The user username
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="profileURL"><span class="type-signature"></span>profileURL<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    User profile url, unreliable, uses screenName for the url to user profile
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line70">line 70</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="raw"><span class="type-signature"></span>raw<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    Raw user from twitter api
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="screenName"><span class="type-signature"></span>screenName<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    The user screenName
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -253,7 +853,7 @@
 
 
 <div class="description">
-    Follow the user which belongs to this User object
+    Follow the user which belongs to this User object, alias to main client class follow()
 </div>
 
 
@@ -357,7 +957,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line36">line 36</a>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -394,7 +994,7 @@
     
 
     
-    <h4 class="name" id="unfollow"><span class="type-signature"></span>unfollow<span class="signature">(user-)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getFollowers"><span class="type-signature"></span>getFollowers<span class="signature">(options)</span><span class="type-signature"></span></h4>
     
 
     
@@ -402,7 +1002,7 @@
 
 
 <div class="description">
-    unFollows a user
+    Get the followers of the user which belongs to this User object, alias to main client class getFollowers(), same options from main
 </div>
 
 
@@ -439,13 +1039,13 @@
 
             <tr>
                 
-                    <td class="name"><code>user-</code></td>
+                    <td class="name"><code>options</code></td>
                 
 
                 <td class="type">
                 
                     
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
                 
@@ -455,7 +1055,7 @@
 
                 
 
-                <td class="description last">A user id or screen name</td>
+                <td class="description last">options for getFollowers()</td>
             </tr>
 
         
@@ -498,7 +1098,97 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line44">line 44</a>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="unfollow"><span class="type-signature"></span>unfollow<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    unFollows the user which belongs to this User object, alias to main client class unfollow(), params are auto placed
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_user.js.html">struc/user.js</a>, <a href="struc_user.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -548,7 +1238,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 18:10:29 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun May 30 2021 08:43:07 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
 </footer>
 
 <script>prettyPrint();</script>

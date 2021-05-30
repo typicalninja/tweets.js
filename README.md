@@ -94,7 +94,18 @@ bot.searchUsers('typicalNinja').catch(console.log).then(users => {
 });
 ```
 
-### find all the methods in our docs [here](https://tweets.axix.cf/)
+**find all the methods in our docs [here](https://tweets.axix.cf/)**
+
+
+# Errors
+
+## Read-only application cannot POST
+
+**If you receive a error like above, change the permission for you app from dev portal to `read and write` from `read`**
+
+![img](https://user-images.githubusercontent.com/65993466/120090828-1da06880-c123-11eb-992e-f0361f3676c2.png)
+
+
 
 ## New version is here!!!
 

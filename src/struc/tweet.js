@@ -1,26 +1,67 @@
 const User = require("./user");
 /**
  * The internal message/tweets class
+ * @class
  * @param {Object} response - response from the fetch request
  * @param {Client}  twitterClient - tweets.js client
  */
 class tweet {
+    /**
+ * Tweet class constructor
+ * @constructor
+ * @param {Object} response - Raw response from get/post request
+ * @param {Client}  client - tweets.js client
+ */
     constructor(response, client) {
+         /**
+         * Tweet id (string)
+         * @type {String}
+         */
         this.id = response.id_str;
+         /**
+         * Raw response from the api         
+         * @type {Object}
+         */
         this.raw = response;
+         /**
+         * the tweets.js client
+         * @type {Client}
+         */
         this.client = client;
+         /**
+         * when the tweet was created
+         * @type {String}
+         */
         this.createdAt = response.created_at;
+         /**
+         * tweet text
+         * @type {String}
+         */
         this.content = response.text;
         // * Removed: support older versions (below v14) - this.replyTo = response.in_reply_to_status_id_str ? response.in_reply_to_status_id_str : response.in_reply_to_user_id_str;
+         /**
+         * id of the post/user which this tweet was posted as a reply (if any)
+         * @type {String}
+         */
         this.replyTo = response.in_reply_to_status_id_str ||  response.in_reply_to_user_id_str;
 
         this.entities = response.entities;
-        this.tweetID = response.id_str;
-
+          /**
+         * The user class of this tweets author
+         * @type {User}
+         */
         this.user = new User(response.user, client);
 
+         /**
+         * Retweets count of this tweet
+         * @type {String}
+         */
         this.retweets = response.retweet_count;
 
+         /**
+         * Request information
+         * @type {Object}
+         */
         this.request = {
             headers: response._headers,
         };

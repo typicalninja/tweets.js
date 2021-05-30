@@ -27,7 +27,7 @@
         <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
     </div>
     <hr>
-    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li></ul></li></ul>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#disconnect">disconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="client.html#getUser">getUser</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reconnect">reconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li><li><span class="small-icon M">M</span><a href="tweet.html#client">client</a></li><li><span class="small-icon M">M</span><a href="tweet.html#content">content</a></li><li><span class="small-icon M">M</span><a href="tweet.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="tweet.html#id">id</a></li><li><span class="small-icon M">M</span><a href="tweet.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="tweet.html#replyTo">replyTo</a></li><li><span class="small-icon M">M</span><a href="tweet.html#request">request</a></li><li><span class="small-icon M">M</span><a href="tweet.html#retweets">retweets</a></li><li><span class="small-icon M">M</span><a href="tweet.html#user">user</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li><li><span class="small-icon M">M</span><a href="User.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="User.html#following">following</a></li><li><span class="small-icon M">M</span><a href="User.html#id">id</a></li><li><span class="small-icon M">M</span><a href="User.html#likedPosts">likedPosts</a></li><li><span class="small-icon M">M</span><a href="User.html#name">name</a></li><li><span class="small-icon M">M</span><a href="User.html#profileURL">profileURL</a></li><li><span class="small-icon M">M</span><a href="User.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="User.html#screenName">screenName</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -349,7 +349,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line26">line 26</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -400,6 +400,155 @@
     
         <h3 class="subsection-title">Methods</h3>
 
+        
+            
+
+    
+
+    
+    <h4 class="name" id="disconnect"><span class="type-signature">(async) </span>disconnect<span class="signature">(removeListeners)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Disconnect the stream
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>removeListeners</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        true
+                    
+                    </td>
+                
+
+                <td class="description last">Weather to remove all the event listeners attached to client/stream set to false if you want to make a manual reconnect logic and don't want to reregister the events</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line461">line 461</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
         
             
 
@@ -533,7 +682,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line249">line 249</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line265">line 265</a>
     </li></ul></dd>
     
 
@@ -717,7 +866,409 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line120">line 120</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line131">line 131</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getFollowers"><span class="type-signature">(async) </span>getFollowers<span class="signature">(user, options)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get a users follower list
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>user</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">A user id or screen name</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>options</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Options for twitter api
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>count</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">The number of user results to retrieve, max of 200</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>skip_status</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Weather to not include status in the api response</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>include_user_entities</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">The user object entities node will not be included when set to false</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line343">line 343</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUser"><span class="type-signature">(async) </span>getUser<span class="signature">(user-)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    gets A specific user from the api
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>user-</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">A user id or screen name</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line371">line 371</a>
     </li></ul></dd>
     
 
@@ -901,7 +1452,148 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line135">line 135</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line146">line 146</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="reconnect"><span class="type-signature">(async) </span>reconnect<span class="signature">(newParameters)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Disconnects and reconnects the stream, does not remove the listeners
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>newParameters</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">The new parameters to start the stream with</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line476">line 476</a>
     </li></ul></dd>
     
 
@@ -1045,7 +1737,58 @@
 
                 
 
-                <td class="description last">options for reply()</td>
+                <td class="description last">options for reply()
+                    <h6>Properties</h6>
+                    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>body</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">additional body with the constructed body</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+                </td>
             </tr>
 
         
@@ -1088,7 +1831,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line184">line 184</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line196">line 196</a>
     </li></ul></dd>
     
 
@@ -1349,7 +2092,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line292">line 292</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line308">line 308</a>
     </li></ul></dd>
     
 
@@ -1470,76 +2213,7 @@
 
                 
 
-                <td class="description last">url the stream, defaults to what you set as stream url in client options</td>
-            </tr>
-
-        
-
-            <tr>
-                
-                    <td class="name"><code>options.page</code></td>
-                
-
-                <td class="type">
-                
-                    
-<span class="param-type">String</span>
-
-
-                
-                </td>
-
-                
-
-                
-
-                <td class="description last">Specifies the page of results to retrieve.</td>
-            </tr>
-
-        
-
-            <tr>
-                
-                    <td class="name"><code>options.count</code></td>
-                
-
-                <td class="type">
-                
-                    
-<span class="param-type">String</span>
-
-
-                
-                </td>
-
-                
-
-                
-
-                <td class="description last">The number of potential user results to retrieve per page. This value has a maximum of 20.</td>
-            </tr>
-
-        
-
-            <tr>
-                
-                    <td class="name"><code>options.includeEntities</code></td>
-                
-
-                <td class="type">
-                
-                    
-<span class="param-type">string</span>
-
-
-                
-                </td>
-
-                
-
-                
-
-                <td class="description last">The entities node will not be included in embedded Tweet objects when set to false</td>
+                <td class="description last">url to stream, defaults to what you set as stream url in client options</td>
             </tr>
 
         
@@ -1582,7 +2256,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line324">line 324</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line401">line 401</a>
     </li></ul></dd>
     
 
@@ -1703,7 +2377,7 @@
 
                 
 
-                <td class="description last">options for either repl() or tweet()
+                <td class="description last">options for either reply() or tweet()
                     <h6>Properties</h6>
                     
 
@@ -1747,6 +2421,29 @@
                 
 
                 <td class="description last">starting the thread with already posted tweet?</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>delay</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">add a delay to in how many time it should take to post it tweet, default to 10000</td>
             </tr>
 
         
@@ -1797,7 +2494,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line213">line 213</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line226">line 226</a>
     </li></ul></dd>
     
 
@@ -2012,7 +2709,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line160">line 160</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line171">line 171</a>
     </li></ul></dd>
     
 
@@ -2153,7 +2850,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line270">line 270</a>
+        <a href="client.js.html">client.js</a>, <a href="client.js.html#line286">line 286</a>
     </li></ul></dd>
     
 
@@ -2203,7 +2900,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri May 28 2021 18:10:29 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun May 30 2021 08:43:07 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
 </footer>
 
 <script>prettyPrint();</script>
