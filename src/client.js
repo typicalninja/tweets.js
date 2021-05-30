@@ -382,7 +382,10 @@ class client extends EventEmitter {
       return new User(request, this);
     }
 
-
+   /**
+   * retweet a tweet
+   * @param {String} tweetID - the id of the tweet
+   */
     async retweet(tweetID) {
       if(this.authenticationType !== 'USER') throw new Error(`Auth type must be a User, got "${this.authenticationType}"`);
       if(!tweetID) throw new Error('Tweet id must be present');
@@ -391,7 +394,7 @@ class client extends EventEmitter {
       const urlToPost = `statuses/retweet/${tweetID}`;
 
       const request = await this.post(urlToPost);
-      console.log(request);
+      return new tweet(request, this);
     }
        /**
    * Start the stream

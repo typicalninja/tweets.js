@@ -105,7 +105,13 @@ bot.searchUsers('typicalNinja').catch(console.log).then(users => {
 
 ![img](https://user-images.githubusercontent.com/65993466/120090828-1da06880-c123-11eb-992e-f0361f3676c2.png)
 
+* Make sure to reset your access Token and Secret
 
+![img](https://user-images.githubusercontent.com/65993466/120090968-47a65a80-c124-11eb-8dca-e4be5fc75823.png)
+
+* it should be equal to below image
+
+![img](https://user-images.githubusercontent.com/65993466/120091035-cf8c6480-c124-11eb-92c2-51553bca66f8.png)
 
 ## New version is here!!!
 

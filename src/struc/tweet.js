@@ -68,7 +68,7 @@ class tweet {
 
     }
        /**
-   * reply to a tweet
+   * reply to the tweet which belongs to this Object
    * @param {string} message- tweet to post as a reply
    * @param {object} options - options for reply()
    */
@@ -77,6 +77,15 @@ class tweet {
         if(options && typeof options !== 'object') throw new Error('Options must be a object');
 
         return this.client.reply(message, this.id, options);
+    }
+
+   /**
+   * retweet the tweet belonging to this object
+   * @param {String} tweetID - the id of the tweet
+   */
+    retweet(tweetID) {
+       if(!tweetID) throw new Error('tweet id is not present');
+       return this.client.retweet(this.id);
     }
 }
 
