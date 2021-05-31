@@ -1,8 +1,10 @@
 {
+    "js/ts.implicitProjectConfig.checkJs": true,
     "cSpell.words": [
         "actiavted",
         "favourites",
         "notifs",
+        "struc",
         "unfollow"
     ]
 }

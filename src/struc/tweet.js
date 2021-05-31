@@ -10,7 +10,7 @@ class tweet {
  * Tweet class constructor
  * @constructor
  * @param {Object} response - Raw response from get/post request
- * @param {Client}  client - tweets.js client
+ * @param {client}  client - tweets.js client
  */
     constructor(response, client) {
          /**
@@ -41,7 +41,7 @@ class tweet {
         // * Removed: support older versions (below v14) - this.replyTo = response.in_reply_to_status_id_str ? response.in_reply_to_status_id_str : response.in_reply_to_user_id_str;
          /**
          * id of the post/user which this tweet was posted as a reply (if any)
-         * @type {String}
+         * @type {?String}
          */
         this.replyTo = response.in_reply_to_status_id_str ||  response.in_reply_to_user_id_str;
 
@@ -65,6 +65,12 @@ class tweet {
         this.request = {
             headers: response._headers,
         };
+
+        if(response.retweeted_status) {
+            this.retweet = new tweet(response.retweeted_status, client);
+        } else {
+            this.retweet = false;
+        }
 
     }
        /**

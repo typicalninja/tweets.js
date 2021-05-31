@@ -9,7 +9,7 @@ const crypto = require("crypto");
 const constants = require('../utils/constants');
 
 module.exports = {
-  isUrl: async function (string) {
+  isUrl: function (string) {
     if (typeof string !== "string") {
       return false;
     }
@@ -33,34 +33,39 @@ module.exports = {
 
     return false;
   },
+  isPath: function(p) {
+    if(!p) return false;
+    if (fs.existsSync(p)) return true;
+     return false;
+  },
+  prepareFile: async function (filepath) {
+    if(this.isUrl(filepath)) {
+      const b64i = await this.download(filepath);
+      return b64i;
+    } else if(this.isPath(filepath)) {
+      const b64i = fs.readFileSync(filepath, { encoding: "base64" });
+      return b64i;
+    }
+    return null;
+  },
   download: async function (url) {
-    const filepath = `./${Date.now()}v${Math.floor(Math.random() * 11)}.png`;
     const response = await fetch(url).catch((err) => {
-      console.log(err);
-      return;
+     throw err;
     });
     if (response) {
       const contentlength = response.headers.get("content-length");
 
       if (contentlength > maxsize * 1024 * 1024) {
-        return console.log(
-          "❌ - file size is too large, refer this: https://tinyurl.com/y568pqdh"
-        );
+         throw new Error('file over file limit');
       }
 
       const buffer = await response.buffer();
-      fs.writeFile(filepath, buffer, () =>
-        console.log("✔️--finished downloading!")
-      );
-      const res = {
-        path: filepath,
-        buffer: buffer,
-        request: response,
-      };
-      return res;
+
+      return buffer.toString('base64');
+      
     } else {
       throw new Error(
-        "❌--Error while fetching and downloading, make sure the url is valid and is a image"
+        "Error while fetching and downloading, make sure the url is valid and is a image"
       );
     }
   },

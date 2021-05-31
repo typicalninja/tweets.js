@@ -6,7 +6,7 @@
   "repository": "typicalninja493/tweet.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
-    "docs:build": "jsdoc ./src/client.js ./src/struc/user.js ./src/struc/tweet.js -t node_modules/jsdoc-skyceil -R README.md -d ./docs"
+    "docs:build": "jsdoc ./src/client.js ./src/utils/constants.js ./src/struc/user.js ./src/struc/deletedTweet.js ./src/struc/tweet.js -t node_modules/jsdoc-skyceil -R README.md -d ./docs"
   },
   "keywords": [
     "twitter",
@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crypto": "^1.0.1",
     "node-fetch": "^2.6.1",
     "oauth-1.0a": "^2.2.6"
   },

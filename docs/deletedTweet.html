@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: struc/tweet.js</title>
+    <title>Class: deletedTweet</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -37,115 +37,513 @@
         <div class="burger-line-3"></div>
     </div>
 
-    <h1 class="page-title">Source: struc/tweet.js</h1>
+    <h1 class="page-title">Class: deletedTweet</h1>
 
     
 
 
 
+
+<section>
+<header>
+    <hr>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const User = require("./user");
-/**
- * The internal message/tweets class
- * @class
- * @param {Object} response - response from the fetch request
- * @param {Client}  twitterClient - tweets.js client
- */
-class tweet {
-    /**
- * Tweet class constructor
- * @constructor
- * @param {Object} response - Raw response from get/post request
- * @param {client}  client - tweets.js client
- */
-    constructor(response, client) {
-         /**
-         * Tweet id (string)
-         * @type {String}
-         */
-        this.id = response.id_str;
-         /**
-         * Raw response from the api         
-         * @type {Object}
-         */
-        this.raw = response;
-         /**
-         * the tweets.js client
-         * @type {Client}
-         */
-        this.client = client;
-         /**
-         * when the tweet was created
-         * @type {String}
-         */
-        this.createdAt = response.created_at;
-         /**
-         * tweet text
-         * @type {String}
-         */
-        this.content = response.text;
-        // * Removed: support older versions (below v14) - this.replyTo = response.in_reply_to_status_id_str ? response.in_reply_to_status_id_str : response.in_reply_to_user_id_str;
-         /**
-         * id of the post/user which this tweet was posted as a reply (if any)
-         * @type {?String}
-         */
-        this.replyTo = response.in_reply_to_status_id_str ||  response.in_reply_to_user_id_str;
+        <h2><span class="attribs"><span class="type-signature"></span></span>deletedTweet<span class="signature">(response, twitterClient)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">The internal deletedTweet class, similar to tweet class</div>
+        
+    
+</header>
 
-        this.entities = response.entities;
-          /**
-         * The user class of this tweets author
-         * @type {User}
-         */
-        this.user = new User(response.user, client);
+<article>
+    <div class="container-overview">
+    
+        
 
-         /**
-         * Retweets count of this tweet
-         * @type {String}
-         */
-        this.retweets = response.retweet_count;
+    
+    <h2>Constructor</h2>
+    
 
-         /**
-         * Request information
-         * @type {Object}
-         */
-        this.request = {
-            headers: response._headers,
-        };
+    
+    <h4 class="name" id="deletedTweet"><span class="type-signature"></span>new deletedTweet<span class="signature">(response, twitterClient)</span><span class="type-signature"></span></h4>
+    
 
-        if(response.retweeted_status) {
-            this.retweet = new tweet(response.retweeted_status, client);
-        } else {
-            this.retweet = false;
-        }
+    
 
-    }
-       /**
-   * reply to the tweet which belongs to this Object
-   * @param {string} message- tweet to post as a reply
-   * @param {object} options - options for reply()
-   */
-    reply(message, options = {}) {
-        if(!message) throw new Error('Cannot reply with a empty message');
-        if(options &amp;&amp; typeof options !== 'object') throw new Error('Options must be a object');
 
-        return this.client.reply(message, this.id, options);
-    }
 
-   /**
-   * retweet the tweet belonging to this object
-   * @param {String} tweetID - the id of the tweet
-   */
-    retweet(tweetID) {
-       if(!tweetID) throw new Error('tweet id is not present');
-       return this.client.retweet(this.id);
-    }
-}
 
-module.exports = tweet;</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>response</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">deleted tweet response from the fetch request</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>twitterClient</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Client</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">tweets.js client</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_deletedTweet.js.html">struc/deletedTweet.js</a>, <a href="struc_deletedTweet.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="deleted"><span class="type-signature"></span>deleted<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    an property to decide is the tweet class returned was for deletedTweet
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_deletedTweet.js.html">struc/deletedTweet.js</a>, <a href="struc_deletedTweet.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    Deleted tweet id
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_deletedTweet.js.html">struc/deletedTweet.js</a>, <a href="struc_deletedTweet.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="raw"><span class="type-signature"></span>raw<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    Raw response from the api
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_deletedTweet.js.html">struc/deletedTweet.js</a>, <a href="struc_deletedTweet.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+            
+<h4 class="name" id="user"><span class="type-signature"></span>user<span class="type-signature"> :<a href="User.html">User</a></span></h4>
+
+
+
+
+<div class="description">
+    The author of the deleted tweet, present only if USER structure enabled
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="User.html">User</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struc_deletedTweet.js.html">struc/deletedTweet.js</a>, <a href="struc_deletedTweet.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

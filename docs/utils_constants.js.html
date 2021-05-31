@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: struc/tweet.js</title>
+    <title>Source: utils/constants.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -37,7 +37,7 @@
         <div class="burger-line-3"></div>
     </div>
 
-    <h1 class="page-title">Source: struc/tweet.js</h1>
+    <h1 class="page-title">Source: utils/constants.js</h1>
 
     
 
@@ -46,104 +46,68 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const User = require("./user");
+            <pre class="prettyprint source linenums"><code>const pkgVersion = require('../../package.json').version;
+
+module.exports.BASE_URL = 'https://api.twitter.com/';
+module.exports.UPLOAD_URL = 'https://upload.twitter.com/';
+
+// default options
+
 /**
- * The internal message/tweets class
- * @class
- * @param {Object} response - response from the fetch request
- * @param {Client}  twitterClient - tweets.js client
+ * Options for a client.
+ * @typedef {Object} ClientOptions
+ * @property {String} subdomain - the subdomain to use for twitter api, ex: api becomes https://api.twitter.com
+ * @property {String} version - twitter api version to use https://api.twitter.com
+ * @property {String} consumer_key - your consumer key if authentication as a USER, if not present fetches from env
+ * @property {String} consumer_secret - Your consumer secret if authentication as a USER, if not present fetches from env
+ * @property {String} access_token - Your access token (key) if authentication as a USER, if not present fetches from env
+ * @property {String} access_token_secret - Your access token secret if authentication as a USER, if not present fetches from env
+ * @property {String} bearer_token - Your bearer token if authenticating as a APP, if not present fetches from env
+ * @property {Boolean} emitter - weather to enable the stream
+ * @property {String} emitterUrl - the url to stream from, ex: statuses/filter
+ * @property {Boolean} autoReconnect - Weather to autoReconnect the stream if a dead stream is found (ping timeout exceeded)
+ * @property {Number} reconnectInterval - the interval reconnect will take to disconnect and reconnect
+ * @property {Boolean} verifyCredentials - weather to verify credentials provided on app startup
  */
-class tweet {
-    /**
- * Tweet class constructor
- * @constructor
- * @param {Object} response - Raw response from get/post request
- * @param {client}  client - tweets.js client
- */
-    constructor(response, client) {
-         /**
-         * Tweet id (string)
-         * @type {String}
-         */
-        this.id = response.id_str;
-         /**
-         * Raw response from the api         
-         * @type {Object}
-         */
-        this.raw = response;
-         /**
-         * the tweets.js client
-         * @type {Client}
-         */
-        this.client = client;
-         /**
-         * when the tweet was created
-         * @type {String}
-         */
-        this.createdAt = response.created_at;
-         /**
-         * tweet text
-         * @type {String}
-         */
-        this.content = response.text;
-        // * Removed: support older versions (below v14) - this.replyTo = response.in_reply_to_status_id_str ? response.in_reply_to_status_id_str : response.in_reply_to_user_id_str;
-         /**
-         * id of the post/user which this tweet was posted as a reply (if any)
-         * @type {?String}
-         */
-        this.replyTo = response.in_reply_to_status_id_str ||  response.in_reply_to_user_id_str;
+module.exports.DefaultOptions = {
+    subdomain: 'api',
+    version: '1.1',
+    consumer_key: process.env.CONSUMER_KEY || null,
+    consumer_secret: process.env.CONSUMER_SECRET || null,
+    access_token: process.env.ACCESS_TOKEN || null,
+    access_token_secret: process.env.ACCESS_TOKEN_SECRET || null,
+    bearer_token: process.env.BEARER_TOKEN || null,
+    emitter: true,
+    emitterUrl: 'statuses/filter',
+    autoReconnect: true,
+    reconnectInterval: 10000, 
+    verifyCredentials: true,
+    structures: ['USER'],
+    };
+// Base headers
+module.exports.BASE_HEADERS = {
+    'Content-Type': 'application/json',
+     Accept: 'application/json',
+     'User-Agent': `tweets.js/${pkgVersion} (https://github.com/typicalninja493/tweets.js)`,
+};
 
-        this.entities = response.entities;
-          /**
-         * The user class of this tweets author
-         * @type {User}
-         */
-        this.user = new User(response.user, client);
+module.exports.upload_ends = ["media/upload", "media/metadata/create"];
 
-         /**
-         * Retweets count of this tweet
-         * @type {String}
-         */
-        this.retweets = response.retweet_count;
 
-         /**
-         * Request information
-         * @type {Object}
-         */
-        this.request = {
-            headers: response._headers,
-        };
+// base get headers
 
-        if(response.retweeted_status) {
-            this.retweet = new tweet(response.retweeted_status, client);
-        } else {
-            this.retweet = false;
-        }
+module.exports.BASE_GET_HEADERS = {
+    'User-Agent': `tweets.js/${pkgVersion} (https://github.com/typicalninja493/tweets.js)`,
+};
 
-    }
-       /**
-   * reply to the tweet which belongs to this Object
-   * @param {string} message- tweet to post as a reply
-   * @param {object} options - options for reply()
-   */
-    reply(message, options = {}) {
-        if(!message) throw new Error('Cannot reply with a empty message');
-        if(options &amp;&amp; typeof options !== 'object') throw new Error('Options must be a object');
-
-        return this.client.reply(message, this.id, options);
-    }
-
-   /**
-   * retweet the tweet belonging to this object
-   * @param {String} tweetID - the id of the tweet
-   */
-    retweet(tweetID) {
-       if(!tweetID) throw new Error('tweet id is not present');
-       return this.client.retweet(this.id);
-    }
-}
-
-module.exports = tweet;</code></pre>
+// json endpoints: https://github.com/draftbit/twitter-lite/blob/master/twitter.js#L40
+module.exports.JSON_ENDPOINTS = [
+    'direct_messages/events/new',
+    'direct_messages/welcome_messages/new',
+    'direct_messages/welcome_messages/rules/new',
+    'media/metadata/create',
+    'collections/entries/curate',
+  ];</code></pre>
         </article>
     </section>
 

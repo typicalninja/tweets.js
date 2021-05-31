@@ -97,6 +97,9 @@ bot.searchUsers('typicalNinja').catch(console.log).then(users => {
 **find all the methods in our docs [here](https://tweets.axix.cf/)**
 
 
+## 
+
+
 # Errors
 
 ## Read-only application cannot POST

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Global</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.3/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search"><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="client.html">client</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="client.html#disconnect">disconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="client.html#get">get</a></li><li><span class="small-icon F">F</span><a href="client.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="client.html#getTweets">getTweets</a></li><li><span class="small-icon F">F</span><a href="client.html#getUser">getUser</a></li><li><span class="small-icon F">F</span><a href="client.html#post">post</a></li><li><span class="small-icon F">F</span><a href="client.html#reconnect">reconnect</a></li><li><span class="small-icon F">F</span><a href="client.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="client.html#retweet">retweet</a></li><li><span class="small-icon F">F</span><a href="client.html#searchUsers">searchUsers</a></li><li><span class="small-icon F">F</span><a href="client.html#start">start</a></li><li><span class="small-icon F">F</span><a href="client.html#thread">thread</a></li><li><span class="small-icon F">F</span><a href="client.html#tweet">tweet</a></li><li><span class="small-icon F">F</span><a href="client.html#unfollow">unfollow</a></li><li><span class="small-icon F">F</span><a href="client.html#uploadMedia">uploadMedia</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="deletedTweet.html">deletedTweet</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="deletedTweet.html#deleted">deleted</a></li><li><span class="small-icon M">M</span><a href="deletedTweet.html#id">id</a></li><li><span class="small-icon M">M</span><a href="deletedTweet.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="deletedTweet.html#user">user</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="tweet.html">tweet</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="tweet.html#reply">reply</a></li><li><span class="small-icon F">F</span><a href="tweet.html#retweet">retweet</a></li><li><span class="small-icon M">M</span><a href="tweet.html#client">client</a></li><li><span class="small-icon M">M</span><a href="tweet.html#content">content</a></li><li><span class="small-icon M">M</span><a href="tweet.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="tweet.html#id">id</a></li><li><span class="small-icon M">M</span><a href="tweet.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="tweet.html#replyTo">replyTo</a></li><li><span class="small-icon M">M</span><a href="tweet.html#request">request</a></li><li><span class="small-icon M">M</span><a href="tweet.html#retweets">retweets</a></li><li><span class="small-icon M">M</span><a href="tweet.html#user">user</a></li></ul></li><li><span class="small-icon C">C</span><b><a href="User.html">User</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="User.html#follow">follow</a></li><li><span class="small-icon F">F</span><a href="User.html#getFollowers">getFollowers</a></li><li><span class="small-icon F">F</span><a href="User.html#unfollow">unfollow</a></li><li><span class="small-icon M">M</span><a href="User.html#createdAt">createdAt</a></li><li><span class="small-icon M">M</span><a href="User.html#following">following</a></li><li><span class="small-icon M">M</span><a href="User.html#id">id</a></li><li><span class="small-icon M">M</span><a href="User.html#likedPosts">likedPosts</a></li><li><span class="small-icon M">M</span><a href="User.html#name">name</a></li><li><span class="small-icon M">M</span><a href="User.html#profileURL">profileURL</a></li><li><span class="small-icon M">M</span><a href="User.html#raw">raw</a></li><li><span class="small-icon M">M</span><a href="User.html#screenName">screenName</a></li></ul></li></ul><h5 class="no-bottom must-underline">Events</h5><ul><li><span class="small-icon E">E</span><a href="client.html#event:ping">ping</a></li><li><span class="small-icon E">E</span><a href="client.html#event:raw">raw</a></li><li><span class="small-icon E">E</span><a href="client.html#event:ready">ready</a></li><li><span class="small-icon E">E</span><a href="client.html#event:reconnect">reconnect</a></li><li><span class="small-icon E">E</span><a href="client.html#event:tweet">tweet</a></li><li><span class="small-icon E">E</span><a href="client.html#event:tweetDelete">tweetDelete</a></li><li><span class="small-icon E">E</span><a href="client.html#event:warning">warning</a></li></ul><h4><a href="global.html">Global</a></h4>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Global</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id="ClientOptions">ClientOptions</h4>
+
+
+
+
+<div class="description">
+    Options for a client.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<div class="table-box">
+    <table class="props">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>subdomain</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">the subdomain to use for twitter api, ex: api becomes https://api.twitter.com</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>version</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">twitter api version to use https://api.twitter.com</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>consumer_key</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">your consumer key if authentication as a USER, if not present fetches from env</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>consumer_secret</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Your consumer secret if authentication as a USER, if not present fetches from env</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>access_token</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Your access token (key) if authentication as a USER, if not present fetches from env</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>access_token_secret</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Your access token secret if authentication as a USER, if not present fetches from env</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>bearer_token</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Your bearer token if authenticating as a APP, if not present fetches from env</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>emitter</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">weather to enable the stream</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>emitterUrl</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">the url to stream from, ex: statuses/filter</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>autoReconnect</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">Weather to autoReconnect the stream if a dead stream is found (ping timeout exceeded)</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>reconnectInterval</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Number</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">the interval reconnect will take to disconnect and reconnect</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>verifyCredentials</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">weather to verify credentials provided on app startup</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_constants.js.html">utils/constants.js</a>, <a href="utils_constants.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+<hr>
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon May 31 2021 21:33:13 GMT+0530 (India Standard Time) using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

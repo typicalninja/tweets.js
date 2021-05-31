@@ -6,26 +6,30 @@ class streamManager extends EventEmitter {
     constructor() {
     super();
 
-    this.buffer = '';
+    this.messageBuffer = '';
     }
-    _parse(buffer) {
-        this.buffer += buffer.toString('utf8');
+    _parse(chunk) {
+        this.messageBuffer += chunk.toString('utf8');
+        chunk = this.messageBuffer;
+
+      
         let index;
         let json;
     
-        while ((index = this.buffer.indexOf(END)) > -1) {
-          json = this.buffer.slice(0, index);
-          this.buffer = this.buffer.slice(index + END_LENGTH);
+        while ((index = this.messageBuffer.indexOf(END)) > -1) {
+          json = this.messageBuffer.slice(0, index);
+          this.messageBuffer = this.messageBuffer.slice(index + END_LENGTH);
           if (json.length > 0) {
             try {
               json = JSON.parse(json);
              return json;
+    
             } catch (error) {
               error.source = json;
              throw error;
             }
           } else {
-           return 'ping';
+           return 'PING';
           }
         }
     }
