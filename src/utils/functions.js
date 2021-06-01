@@ -1,12 +1,11 @@
-const protocolAndDomainRE = /^(?:\w+:)?\/\/(\S+)$/;
-const localhostDomainRE = /^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/;
-const nonLocalhostDomainRE = /^[^\s\.]+\.\S{2,}$/;
+//@ts-check
+const { URL } = require('url');
 const fs = require("fs");
 const fetch = require("node-fetch");
 const maxsize = 15;
 const OAuth = require("oauth-1.0a");
 const crypto = require("crypto");
-const constants = require('../utils/constants');
+// const constants = require('../utils/constants');
 
 module.exports = {
   isUrl: function (string) {
@@ -14,30 +13,26 @@ module.exports = {
       return false;
     }
 
-    const match = string.match(protocolAndDomainRE);
-    if (!match) {
+    const protocols = ['https', 'http'];
+    let url;
+    try {
+      url = new URL(string);
+      return protocols
+          ? url.protocol
+              ? protocols.map(u => `${u.toLowerCase()}:`).includes(url.protocol)
+              : false
+          : true;
+  } catch (err) {
       return false;
-    }
+  }
 
-    const everythingAfterProtocol = match[1];
-    if (!everythingAfterProtocol) {
-      return false;
-    }
-
-    if (
-      localhostDomainRE.test(everythingAfterProtocol) ||
-      nonLocalhostDomainRE.test(everythingAfterProtocol)
-    ) {
-      return true;
-    }
-
-    return false;
   },
   isPath: function(p) {
     if(!p) return false;
     if (fs.existsSync(p)) return true;
      return false;
   },
+
   prepareFile: async function (filepath) {
     if(this.isUrl(filepath)) {
       const b64i = await this.download(filepath);
@@ -48,6 +43,7 @@ module.exports = {
     }
     return null;
   },
+
   download: async function (url) {
     const response = await fetch(url).catch((err) => {
      throw err;
@@ -70,7 +66,7 @@ module.exports = {
     }
   },
   createClient: function(key, secret){
-    const client = OAuth({
+    const client = new OAuth({
       consumer: { 
         key, 
         secret 

@@ -53,10 +53,12 @@ bot.tweet('hello from tweets.js').then(console.log).catch(console.error)
 * Using the default settings
 * **A stream emitter is ready on startup by default, you will just have to call `<client>.start(parameters)` for it to be activated**
 
+* Do not use all the events in the below code without knowing what they are for, only use ones you need 
+  
 ```js
 
 const parameters = {
-  follow: "1238451949000888322", // @typicalninja
+  follow: "1238451949000888322", // @typicalninja (my twitter id)
 };
 
 const stream = bot.start(parameters);
@@ -66,14 +68,14 @@ stream.on('ready', (res) => {
   console.log('Stream ready');
 });
 
-// on data event from twitter
-stream.on("data", tweet => {
-if(tweet.text) {
-  console.log(`New tweet : ${tweet.text} `)
-} else {
-  console.log(`A tweet was deleted : (`)
-}
-});
+// o new tweet for our parameters was posted
+stream.on("tweet", tweet => console.log(tweet));
+
+// a tweet was deleted
+stream.on('tweetDelete', (deletedTweet) => console.log(deletedTweet));
+
+// a chuck was received
+stream.on('raw', (data, type) => console.log('[', type, ']', '-', data));
 
 // good idea to listen for these errors
 stream.on('error', (err) => console.log(err));
@@ -82,7 +84,13 @@ stream.on('error', (err) => console.log(err));
 stream.on("ping", () => console.log("ping"))
 
 // emitted when stream ends
-stream.on("end", () => console.log(`Stream ended f`))
+stream.on("end", () => console.log(`Stream ended`))
+
+// if the client reconnects due to pintTimeout exceeding (or other, but mostly pintTimeout exceeding)
+stream.on('reconnect', () => console.log('Reconnecting.....'));
+
+// Remove if not making a stream for debug purpose, logs everything the client does behind the scence
+stream.on('debug', (message) => console.log(message));
 ```
 
 > search for users

@@ -72,10 +72,12 @@ class tweet {
             this.retweet = false;
         }
 
+        this.tweetUrl = `https://twitter.com/${this.user.screenName}/status/tweet.id_str`;
+
     }
        /**
    * reply to the tweet which belongs to this Object
-   * @param {string} message- tweet to post as a reply
+   * @param {string} message - tweet to post as a reply
    * @param {object} options - options for reply()
    */
     reply(message, options = {}) {
