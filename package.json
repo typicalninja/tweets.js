@@ -1,6 +1,6 @@
 {
   "name": "tweets.js",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "a easy to use client for the twitter api",
   "main": "index.js",
   "repository": "typicalninja493/tweet.js",
