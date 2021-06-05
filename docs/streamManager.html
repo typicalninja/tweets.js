@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: tweet</title>
+    <title>Class: streamManager</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -37,7 +37,7 @@
         <div class="burger-line-3"></div>
     </div>
 
-    <h1 class="page-title">Class: tweet</h1>
+    <h1 class="page-title">Class: streamManager</h1>
 
     
 
@@ -48,9 +48,9 @@
 <header>
     <hr>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>tweet<span class="signature">(response, twitterClient)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>streamManager<span class="signature">(client, options)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">The internal message/tweets class</div>
+            <div class="class-description">The StreamManager</div>
         
     
 </header>
@@ -65,16 +65,12 @@
     
 
     
-    <h4 class="name" id="tweet"><span class="type-signature"></span>new tweet<span class="signature">(response, twitterClient)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="streamManager"><span class="type-signature"></span>new streamManager<span class="signature">(client, options)</span><span class="type-signature"></span></h4>
     
 
     
 
 
-
-<div class="description">
-    Tweet class constructor
-</div>
 
 
 
@@ -110,30 +106,7 @@
 
             <tr>
                 
-                    <td class="name"><code>response</code></td>
-                
-
-                <td class="type">
-                
-                    
-<span class="param-type">Object</span>
-
-
-                
-                </td>
-
-                
-
-                
-
-                <td class="description last">response from the fetch request</td>
-            </tr>
-
-        
-
-            <tr>
-                
-                    <td class="name"><code>twitterClient</code></td>
+                    <td class="name"><code>client</code></td>
                 
 
                 <td class="type">
@@ -150,6 +123,29 @@
                 
 
                 <td class="description last">tweets.js client</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>options</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">options for StreamManager</td>
             </tr>
 
         
@@ -192,7 +188,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line8">line 8</a>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -206,6 +202,21 @@
 
 
 
+
+<h5>Fires:</h5>
+<ul>
+    <li><a href="streamManager.html#event:ready">streamManager#event:ready</a></li>
+
+    <li>streamManager#event:ping</li>
+
+    <li><a href="streamManager.html#event:tweet">streamManager#event:tweet</a></li>
+
+    <li><a href="streamManager.html#event:tweetDelete">streamManager#event:tweetDelete</a></li>
+
+    <li><a href="streamManager.html#event:raw">streamManager#event:raw</a></li>
+
+    <li>streamManager#event:debug</li>
+</ul>
 
 
 
@@ -239,676 +250,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="client"><span class="type-signature"></span>client<span class="type-signature"> :Client</span></h4>
-
-
-
-
-<div class="description">
-    the tweets.js client
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Client</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line30">line 30</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="content"><span class="type-signature"></span>content<span class="type-signature"> :String</span></h4>
-
-
-
-
-<div class="description">
-    tweet text
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">String</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line40">line 40</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="createdAt"><span class="type-signature"></span>createdAt<span class="type-signature"> :String</span></h4>
-
-
-
-
-<div class="description">
-    when the tweet was created
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">String</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line35">line 35</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :String</span></h4>
-
-
-
-
-<div class="description">
-    Tweet id (string)
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">String</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="raw"><span class="type-signature"></span>raw<span class="type-signature"> :Object</span></h4>
-
-
-
-
-<div class="description">
-    Raw response from the api
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="replyTo"><span class="type-signature">(nullable) </span>replyTo<span class="type-signature"> :String</span></h4>
-
-
-
-
-<div class="description">
-    id of the post/user which this tweet was posted as a reply (if any)
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">String</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line46">line 46</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="request"><span class="type-signature"></span>request<span class="type-signature"> :Object</span></h4>
-
-
-
-
-<div class="description">
-    Request information
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line65">line 65</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="retweets"><span class="type-signature"></span>retweets<span class="type-signature"> :String</span></h4>
-
-
-
-
-<div class="description">
-    Retweets count of this tweet
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">String</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line59">line 59</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-            
-<h4 class="name" id="user"><span class="type-signature"></span>user<span class="type-signature"> :<a href="User.html">User</a></span></h4>
-
-
-
-
-<div class="description">
-    The user class of this tweets author
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="User.html">User</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line53">line 53</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-<hr>
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -919,7 +260,7 @@
     
 
     
-    <h4 class="name" id="reply"><span class="type-signature"></span>reply<span class="signature">(message, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="_connect"><span class="type-signature"></span>_connect<span class="signature">(parameters, path)</span><span class="type-signature"></span></h4>
     
 
     
@@ -927,7 +268,7 @@
 
 
 <div class="description">
-    reply to the tweet which belongs to this Object
+    Start the stream
 </div>
 
 
@@ -964,13 +305,13 @@
 
             <tr>
                 
-                    <td class="name"><code>message</code></td>
+                    <td class="name"><code>parameters</code></td>
                 
 
                 <td class="type">
                 
                     
-<span class="param-type">string</span>
+<span class="param-type">Object</span>
 
 
                 
@@ -980,14 +321,463 @@
 
                 
 
-                <td class="description last">tweet to post as a reply</td>
+                <td class="description last">parameters for twitter api</td>
             </tr>
 
         
 
             <tr>
                 
-                    <td class="name"><code>options</code></td>
+                    <td class="name"><code>path</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">url to stream, defaults to what you set as stream url in client options</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="disconnect"><span class="type-signature">(async) </span>disconnect<span class="signature">(removeListeners)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Disconnect the stream
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>removeListeners</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Boolean</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        true
+                    
+                    </td>
+                
+
+                <td class="description last">Weather to remove all the event listeners attached to client/stream set to false if you want to make a manual reconnect logic and don't want to reregister the events</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line229">line 229</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="reconnect"><span class="type-signature">(async) </span>reconnect<span class="signature">(newParameters)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Disconnects and reconnects the stream, does not remove the listeners
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>newParameters</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">The new parameters to start the stream with</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line203">line 203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<h5>Fires:</h5>
+<ul>
+    <li>streamManager#reconnect - When the client attempts to reconnect the stream,event: can be because of forced or due to client disconnection</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:raw">raw</h4>
+    
+
+    
+
+
+
+<div class="description">
+    every data received from the stream api
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<div class="table-box">
+    <table class="props">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>parsed</code></td>
                 
 
                 <td class="type">
@@ -1003,16 +793,36 @@
 
                 
 
-                <td class="description last">options for reply()</td>
+                <td class="description last">the parsed data</td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>type</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">String</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">the type of the event data</td>
             </tr>
 
         
         </tbody>
     </table>
 </div>
-
-
-
 
 
 
@@ -1046,7 +856,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line83">line 83</a>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line155">line 155</a>
     </li></ul></dd>
     
 
@@ -1083,7 +893,7 @@
     
 
     
-    <h4 class="name" id="retweet"><span class="type-signature"></span>retweet<span class="signature">(tweetID)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="event:ready">ready</h4>
     
 
     
@@ -1091,7 +901,7 @@
 
 
 <div class="description">
-    retweet the tweet belonging to this object
+    Ready event, fired when stream is connected
 </div>
 
 
@@ -1102,11 +912,16 @@
 
 
 
-    <h5>Parameters:</h5>
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
     
 
 <div class="table-box">
-    <table class="params">
+    <table class="props">
         <thead>
         <tr>
             
@@ -1128,13 +943,13 @@
 
             <tr>
                 
-                    <td class="name"><code>tweetID</code></td>
+                    <td class="name"><code>response</code></td>
                 
 
                 <td class="type">
                 
                     
-<span class="param-type">String</span>
+<span class="param-type">object</span>
 
 
                 
@@ -1144,13 +959,100 @@
 
                 
 
-                <td class="description last">the id of the tweet</td>
+                <td class="description last">the raw response from the request</td>
             </tr>
 
         
         </tbody>
     </table>
 </div>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:reconnect">reconnect</h4>
+    
+
+    
+
+
+
+<div class="description">
+    When the client attempts to reconnect the stream, can be because of forced or due to client disconnection
+</div>
+
+
+
+
+
+
+
 
 
 
@@ -1187,7 +1089,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struc_tweet.js.html">struc/tweet.js</a>, <a href="struc_tweet.js.html#line94">line 94</a>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line216">line 216</a>
     </li></ul></dd>
     
 
@@ -1219,10 +1121,401 @@
 
 <hr>
         
+            
+
+    
+
+    
+    <h4 class="name" id="event:tweet">tweet</h4>
     
 
     
 
+
+
+<div class="description">
+    When a new tweet is given by the stream api
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line129">line 129</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tweet - a tweet class
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type"><a href="tweet.html">tweet</a></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:tweetDelete">tweetDelete</h4>
+    
+
+    
+
+
+
+<div class="description">
+    emitted when a tweet is deleted
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<div class="table-box">
+    <table class="props">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>deletedTweet</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type"><a href="deletedTweet.html">deletedTweet</a></span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">the deletedTweet class</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line138">line 138</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:warning">warning</h4>
+    
+
+    
+
+
+
+<div class="description">
+    when a warning is given by the api
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<div class="table-box">
+    <table class="props">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>warning</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">warning</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last">the parsed warning</td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="streamManager.js.html">streamManager.js</a>, <a href="streamManager.js.html#line147">line 147</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
     
 </article>
 
