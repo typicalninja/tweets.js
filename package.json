@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eventemitter3": "^4.0.7",
     "node-fetch": "^2.6.1",
     "oauth-1.0a": "^2.2.6"
   },
