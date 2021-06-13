@@ -8,7 +8,7 @@ try {
 
 const END = "\r\n";
 const END_LENGTH = 2;
-
+const constants = require("./utils/constants");
 const querystring = require("querystring");
 const wait = require("util").promisify(setTimeout);
 const fetch = require("node-fetch");
@@ -39,12 +39,12 @@ class streamManager extends EventEmitter {
     this.path = options.path;
     this._client = client;
     this._UserData = options.userData;
-    this._options = Object.freeze(options);
+    const _options = Object.assign({}, constants.defaultStreamOptions, options);
+    this._options = Object.freeze(_options);
   }
   /**
    * Start the stream
    * @param {Object} parameters - parameters for twitter api
-   * @param {String} path - url to stream, defaults to what you set as stream url in client options
    */
   _connect(parameters) {
     const Data = {

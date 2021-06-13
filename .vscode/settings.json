@@ -1,3 +1,17 @@
 {
-    "js/ts.implicitProjectConfig.checkJs": true
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "lgd.options": {
+
+        // This extension will provide autocomplete/snippets when
+        // you start typing certain words.
+        "autoComplete" : {
+          // Should we autocomplete.
+          "enabled" : true
+        },
+        "generateTypings": true,
+        "generateTypingsOnChange": true,
+        "maintainHierarchy": true,
+    
+    }
+    
 }

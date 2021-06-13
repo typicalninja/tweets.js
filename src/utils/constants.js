@@ -36,6 +36,10 @@ module.exports.DefaultOptions = {
     verifyCredentials: true,
     structures: ['USER'],
     };
+
+module.exports.defaultStreamOptions = {
+ 
+};
 // Base headers
 module.exports.BASE_HEADERS = {
     'Content-Type': 'application/json',

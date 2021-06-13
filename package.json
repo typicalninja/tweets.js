@@ -1,6 +1,7 @@
 {
   "name": "tweets.js",
-  "version": "2.1.0",
+  "version": "2.1.1",
+  "types": "./typings",
   "description": "a easy to use client for the twitter api",
   "main": "index.js",
   "repository": "typicalninja493/tweet.js",
@@ -11,7 +12,8 @@
   "keywords": [
     "twitter",
     "twitter-api",
-    "api"
+    "api",
+    "twitter-Streams"
   ],
   "homepage": "http://tweets.axix.cf/",
   "author": "",
