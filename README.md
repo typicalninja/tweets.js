@@ -1,6 +1,6 @@
 # Deprecated / moved
 
-> this package is now deperecated and is published under name **tweets.ts** as it was rewritten in typescript, please use the tweets.ts version for future projects
+> this package is now deperecated and is published under name **[tweets.ts](https://github.com/typicalninja493/tweets.ts)** as it was rewritten in typescript, please use the tweets.ts version for future projects
 
 
 # Installing
