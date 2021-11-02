@@ -1,3 +1,8 @@
+# Deprecated / moved
+
+> this package is now deperecated and is published under name **tweets.ts** as it was rewritten in typescript, please use the tweets.ts version for future projects
+
+
 # Installing
 
 You can install the **tweets.js** package using the following command
